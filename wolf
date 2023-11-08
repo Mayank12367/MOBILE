@@ -1,226 +1,165 @@
-
-Practical-3) Designing the mobile app to implement different Layouts.
-import 'package:flutter/material.dart';
-void main() {runApp(MyApp());
-}
-class MyApp extends StatelessWidget {
-@override
-Widget build(BuildContext context) {
-return MaterialApp(
-title:"My Application",
-debugShowCheckedModeBanner: true,
-home: Scaffold(
-body: Padding(
-padding: const EdgeInsets.all(20.0),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-children: [
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-children: [
-Container(height: 100, width: 100, color: Colors.teal,),
-Container(height: 100, width: 100, color: Colors.teal[600]),
-Container(
-height: 100, width: 100, color: Colors.teal[900]),
-],
-),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-children: [
-Container( height: 100, width: 100, color: Colors.amberAccent,),
-Container( height: 100, width: 100, color: Colors.amberAccent[100]),
-Container(height: 100, width: 100,color: Colors.amberAccent[200]),
-], ) ], ) ) ) );
-}
-}
-
-
-Practical 6
-import 'package:flutter/material.dart';
-void main() {
-runApp(MyApp());
-}
-class MyApp extends StatelessWidget {
-@override
-Widget build(BuildContext context) {
-return MaterialApp(
-title: 'Network Image',
-theme: ThemeData(
-primarySwatch: Colors.blue,
-),
-home: MyHomePage(),
-debugShowCheckedModeBanner: false,
-);
-}
-}
-// setup a stateful widget
-class MyHomePage extends StatefulWidget {
-@override
-_MyHomePageState createState() => _MyHomePageState();
-}
-class _MyHomePageState extends State<MyHomePage> {
-@override
-Widget build(BuildContext context) {
-return Scaffold(
-// Design of the application
-appBar: AppBar(
-title:Text("GeeksforGeeks"),
-backgroundColor:Colors.green
-),
-body: Padding(
-padding: const EdgeInsets.all(8.0),
-child: ListView(
-children:<Widget>[
-Padding(
-padding: const EdgeInsets.all(8.0),
-// Image.network(src)
-child: Image.network("https://images.pexels.com/photos/213780/pexelsphoto-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
-),
-Padding(
-padding: const EdgeInsets.all(8.0),
-child: 
-Image.network("https://images.pexels.com/photos/2899097/pexels-photo2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
-),
-Padding(
-padding: const EdgeInsets.all(8.0),
-child: 
-Image.network("https://images.pexels.com/photos/2820884/pexels-photo2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
-)
-]
-),
-),
-);
-}
-}
+Write a program to store the elements in 1-D array and perform the operations
+like searching, sorting and reversing the elements. [Menu Driven]
+def display menu():
+ print("1. Add element to the array")
+ print("2. Search for an element")
+ print("3. Sort the array")
+ print("4. Reverse the array")
+ print("5. Display the array")
+ print("6. Exit")
+def add element(arr, element):
+ arr.append(element)
+ print(f"{element} added to the array")
+def search element(arr, element):
+ if element in arr:
+     return f"{element} found at index {arr.index(element)}"
+ else:
+     return f"{element} not found in the array"
+def sort array(arr):
+ arr.sort()
+ print("Array sorted")
+def reverse array(arr):
+ arr.reverse()
+ print("Array reversed")
+def display array(arr):
+ print("Array:", arr)
+  if __name__ == "__main__":
+    array = []
+    while True:
+          display menu()
+          choice = input("Enter your choice: ")
+ if choice == "1":
+ element = int(input("Enter the element to add: "))
+ add element(array, element)
+ elif choice == "2":
+ element = int(input("Enter the element to search: "))
+ result = search element(array, element)
+ print(result)
+ elif choice == "3":
+ sort_array(array)
+ elif choice == "4":
+ reverse_array(array)
+ elif choice == "5":
+ display_array(array)
+ elif choice == "6":
+ print("Exiting the program.")
+ break
+ else:
+ print("Invalid choice. Please try again.")
 
 
 
+Read the two arrays from the user and merge them and display the elements in
+sorted order. [Menu Driven]
+def display menu():
+ print("1. Enter elements for Array 1")
+ print("2. Enter elements for Array 2")
+ print("3. Merge and sort arrays")
+ print("4. Display merged and sorted array")
+ print("5. Exit")
+def merge_and_sort(arr1, arr2):
+ merged_array = arr1 + arr2
+ merged_array.sort()
+ return merged_array
+if __name__ == "__main__":
+ array1 = []
+ array2 = []
+ while True:
+ display_menu()
+ choice = input("Enter your choice: ")
+ if choice == "1":
+ elements = input("Enter elements for Array 1 (comma-separated): ").split(',')
+ array1 = [int(element.strip()) for element in elements]
+ print("Array 1 updated.")
+ elif choice == "2":
+ elements = input("Enter elements for Array 2 (comma-separated): ").split(',')
+ array2 = [int(element.strip()) for element in elements]
+ print("Array 2 updated.")
+ elif choice == "3":
+ merged_and_sorted = merge_and_sort(array1, array2)
+ print("Arrays merged and sorted.")
+ elif choice == "4":
+ if not merged_and_sorted:
+ print("Please merge and sort the arrays first (Option 3).")
+ else:
+ print("Merged and sorted array:", merged_and_sorted)
+ elif choice == "5":
+ print("Exiting the program.")
+ break
+ else:
+ print("Invalid choice. Please try again.")
 
-Practical 7
-import 'package:flutter/material.dart';
-void main() {
-runApp(MaterialApp(home: const MyApp()));
-}
-class MyApp extends StatefulWidget {
-const MyApp({Key? key}) : super(key: key);
-@override
-State<MyApp> createState() => _MyAppState();
-}
-class _MyAppState extends State<MyApp> {
-int numberOfTimesTapped = 0;
-@override
-Widget build(BuildContext context) {
-return Scaffold(
-body: Center(
-child: Column(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-children: [
-Text('Tapped '+ numberOfTimesTapped.toString() + 'times', style:
-TextStyle (fontSize:30)),
-GestureDetector(
-onTap:() {
-setState((){
-numberOfTimesTapped++;
-});
-},
-child: Container(
-padding: EdgeInsets.all(20),
-color: Colors.green[200],
-child: Text('TAP HERE', style:TextStyle(fontSize: 30), )),
-//Container
-)//GestureDetector
-],
-), // Column
-), // Center
-); //Scaffold
-}
-}
 
-
-Practical 8
-Import‘package:flutter/material.dart’;
-Void main() => runApp(MyApp());
-Class MyApp extends StatelessWidget {
-// This widget is the root of your application.
-@override
-Widget build(BuildContext context) {
-Return MaterialApp(
-Title: ‘Flutter Application’,
-Theme: ThemeData(
-primarySwatch: Colors.orange,
-),
-Home: HeroAnimation(title: ‘Hero Animation’),
-);
-}
-}
-Class HeroAnimation extends StatefulWidget {
-HeroAnimation({Key? Key, this.title=”hello”}) : super(key: key);
-Final String title;
-@override
-_HeroAnimationState createState() => _HeroAnimationState();
-}
-Class _HeroAnimationState extends State<HeroAnimation> {
-Widget _greenRectangle() {
-Return Container(
-Width: 75,
-Height: 75,
-Color: Colors.green,
-);
-}
-Widget _detailPageRectangle() {
-Return Container(
-Width: 150,
-Height: 150,
-Color: Colors.red,
-);
-}
-@override
-Widget build(BuildContext context) {
-Return Scaffold(
-appBar: AppBar(
-title: Text(widget.title),
-),
-Body: buildDemoWidget(context),
-);
-}
-Widget buildDemoWidget(BuildContext context) {
-Return Center(
-Child: Column(
-crossAxisAlignment: CrossAxisAlignment.start,
-children: <Widget>[
-SizedBox(
-Height: 30.0,
-),
-ListTile(
-Leading: GestureDetector(
-Child: Hero(
-Tag: ‘hero-rectangle’,
-Child: _greenRectangle(),
-),
-onTap: () => _gotoDetailsPage(context),
-),
-Title: Text(‘Tap on the green icon rectangle to analyse hero animation transition.’),
-),
-],
-),
-);
-}
-Void _gotoDetailsPage(BuildContext context) {
-Navigator.of(context).push(MaterialPageRoute(
-Builder: (ctx) => Scaffold(
-Body: Center(
-Child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-children: <Widget>[
-Hero(
-Tag: ‘hero-rectangle’,
-Child: _detailPageRectangle(),
-),
-Text(‘This is a place where you can see details about the icon tapped at previous page.’),
-],
-),
-),
-),
-));
-}
-}
+Write a program to perform the Matrix addition, Multiplication
+and Transpose Operation. [Menu Driven]
+def display_menu():
+ print("1. Enter matrices")
+ print("2. Perform matrix addition")
+ print("3. Perform matrix multiplication")
+ print("4. Perform matrix transpose")
+ print("5. Exit")
+def enter_matrix(rows, cols):
+ matrix = []
+ for i in range(rows):
+ row = input(f"Enter space-separated elements for row {i+1}: ").split()
+ if len(row) != cols:
+ print("Invalid input. Please enter exactly", cols, "elements.")
+ return None
+ matrix.append([int(x) for x in row])
+ return matrix
+def matrix_addition(matrix1, matrix2):
+ if len(matrix1) != len(matrix2) or len(matrix1[0]) != len(matrix2[0]):
+ print("Matrix dimensions must match for addition.")
+ return None
+ result = [[matrix1[i][j] + matrix2[i][j]
+ for j in range(len(matrix1[0]))]
+ for i in range(len(matrix1))]
+ return result
+def matrix_multiplication(matrix1, matrix2):
+ if len(matrix1[0]) != len(matrix2):
+ print("Number of columns in the first matrix must match the number of rows in the second
+matrix.")
+ return None
+ result = [[sum(matrix1[i][k] * matrix2[k][j] for k in range(len(matrix1[0])))
+ for j in range(len(matrix2[0]))]
+ for i in range(len(matrix1))]
+ return result
+def matrix_transpose(matrix):
+ result = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+ return result
+if __name__ == "__main__":
+ matrix1 = []
+ matrix2 = []
+ while True:
+ display_menu()
+ choice = input("Enter your choice: ")
+ if choice == "1":
+ rows1 = int(input("Enter the number of rows for Matrix 1: "))
+ cols1 = int(input("Enter the number of columns for Matrix 1: "))
+ matrix1 = enter_matrix(rows1, cols1)
+ rows2 = int(input("Enter the number of rows for Matrix 2: "))
+ cols2 = int(input("Enter the number of columns for Matrix 2: "))
+ matrix2 = enter_matrix(rows2, cols2)
+ elif choice == "2":
+ result = matrix_addition(matrix1, matrix2)
+ if result:
+ print("Matrix Addition Result:")
+ for row in result:
+ print(row)
+ elif choice == "3":
+ result = matrix_multiplication(matrix1, matrix2)
+ if result:
+ print("Matrix Multiplication Result:")
+ for row in result:
+ print(row)
+ elif choice == "4":
+ result = matrix_transpose(matrix1)
+ if result:
+ print("Transpose of Matrix 1:")
+ for row in result:
+ print(row)
+ elif choice == "5":
+ print("Exiting the program.")
+ break
+ else:
+ print("Invalid choice. Please try again.")

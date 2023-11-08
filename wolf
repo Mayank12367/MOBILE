@@ -199,6 +199,80 @@ mergeSort (alist)
 print (alist)
 
 
+4)IMPLEMENT USE OF SETS AND VARIOUS OPERATIONS ON SETS
+set1=set()
+print("Initial set is empty:", set1)
+set1.add("red")
+print("After adding 1 element:", set1)
+set1.update(["yellow", "blue"])
+print ("After updating more elements:",set1)
+if "red"in set1:
+    set1.remove("red")
+print ("After removing (red) elements:", set1)
+print (set1)
+for item in set1:
+  print (item)
+print ("Item count:",len (set1))
+isempty=len(set1)==0
+set1= set(["red", "yellow"])
+set2=set(["blue", "yellow"])
+set3=set1&set2
+set4=set1|set2
+set5=set1-set2
+set6=set1^set2
+issubset=set1<=set2
+superset=set1>=set2
+set7=set1.copy()
+set7.remove("red")
+set8=set1.copy()
+set8.clear()
+print ("Original set:", set1)
+print ("Original set:", set2)
+print ("Intersection of setlist2:",set3)
+print("Union set1|set2:",set4)
+print("set diference (set1-set2)", set5)
+print("symetric difference (set1^set2):",set6)
+print("Subset test (set1<=set2)):",issubset)
+print("Superset text(set1>=set2):",superset)
+print("Shallow copy:", set7)
+print("After clearing:",set8)
+
+
+5)IMPLEMENT WORKING OF STACKS
+Mystack=[]
+stacksize=3
+def Displaystack():
+   print ("stack currently contains ")
+   for item in Mystack:
+     print (item)
+def push (value):
+   if len(Mystack)<stacksize:
+       Mystack.append(value)
+   else:
+       print ("STACK IS FULL")
+def pop():
+    if len(Mystack)>0:
+        Mystack.pop()
+    else:
+        print ("STACK IS EMPTY")
+push (1)
+push (2)
+push (3)
+Displaystack()
+input ("Press any key when ready..")
+push (4)
+Displaystack()
+input ("Press any key when ready.. ")
+pop()
+Displaystack()
+input ("Press any key when ready..")
+pop ()
+pop ()
+pop ()
+Displaystack()
+
+
+
 QUEUE
 A(A QUEUE IS A LIST OF ITEMS WHICH YOU ADD AND DELETE ITEMS FROM)
 class Queue:
@@ -236,3 +310,76 @@ q.enqueue("Dante")
 q.enqueue(True)
 print (q.size())
 
+
+8
+A)SINGLY LINKED LIST
+class Node (object ):
+    def __init__(self, data, next):
+        self.data=data
+        self.next=next
+class SingleList (object):
+ head=None
+ tail=None
+ def show (self):
+   print("showing list data")
+   current_node=self.head
+   while current_node is not None:
+       print (current_node.data, "->")
+       current_node=current_node.next
+   print (None)
+ def append(self, data):
+     node=Node (data, None)
+     if self.head is None:
+        self.head=self.tail=node
+     else:
+        self.tail.next=node
+        self.tail=node
+ def remove(self,node_value):
+     current_node=self.head
+     previous_node=None
+     while current_node is not None:
+         if current_node.data==node_value:
+             if previous_node is not None:
+                 previous_node.next=current_node.next
+             else:
+                 self.head=current_node.next
+         previous_node=current_node
+         current_node=current_node.next
+s=SingleList()
+s.append(31)
+s.append(2)
+s.append(3)
+s.append(4)
+s.show()
+
+
+9)IMPLEMENT BINARY TREE AND ITS TRANSVERSALS
+class node:
+   def __init__(self, key):
+       self.left=None
+       self.right=None
+       self.val=key
+def printInorder(root):
+    if root:
+       printInorder(root.left)
+       print(root.val)
+       printInorder(root.right)
+def printPostorder(root):
+    if root:
+        printPostorder(root.left)
+        printPostorder(root.right)
+        print(root.val)
+def printPreorder(root):
+    if root:
+        print(root.val)
+        printPreorder(root.left)
+        printPreorder (root.right)
+root=node(1)
+root.left=node(2)
+root.right=node(3)
+root.left=node(4)
+root.right=node(5)
+
+print("Print Preorder transversal of binary tree", printPreorder(root))
+print("\n Print Inorder transversal of blanary tree",printInorder(root))
+print("\n Print Postorder transversal of binary tree",printPostorder(root))

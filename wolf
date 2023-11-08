@@ -90,76 +90,107 @@ if __name__ == "__main__":
  print("Invalid choice. Please try again.")
 
 
-Write a program to perform the Matrix addition, Multiplication
-and Transpose Operation. [Menu Driven]
-def display_menu():
- print("1. Enter matrices")
- print("2. Perform matrix addition")
- print("3. Perform matrix multiplication")
- print("4. Perform matrix transpose")
- print("5. Exit")
-def enter_matrix(rows, cols):
- matrix = []
- for i in range(rows):
- row = input(f"Enter space-separated elements for row {i+1}: ").split()
- if len(row) != cols:
- print("Invalid input. Please enter exactly", cols, "elements.")
- return None
- matrix.append([int(x) for x in row])
- return matrix
-def matrix_addition(matrix1, matrix2):
- if len(matrix1) != len(matrix2) or len(matrix1[0]) != len(matrix2[0]):
- print("Matrix dimensions must match for addition.")
- return None
- result = [[matrix1[i][j] + matrix2[i][j]
- for j in range(len(matrix1[0]))]
- for i in range(len(matrix1))]
- return result
-def matrix_multiplication(matrix1, matrix2):
- if len(matrix1[0]) != len(matrix2):
- print("Number of columns in the first matrix must match the number of rows in the second
-matrix.")
- return None
- result = [[sum(matrix1[i][k] * matrix2[k][j] for k in range(len(matrix1[0])))
- for j in range(len(matrix2[0]))]
- for i in range(len(matrix1))]
- return result
-def matrix_transpose(matrix):
- result = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
- return result
-if __name__ == "__main__":
- matrix1 = []
- matrix2 = []
- while True:
- display_menu()
- choice = input("Enter your choice: ")
- if choice == "1":
- rows1 = int(input("Enter the number of rows for Matrix 1: "))
- cols1 = int(input("Enter the number of columns for Matrix 1: "))
- matrix1 = enter_matrix(rows1, cols1)
- rows2 = int(input("Enter the number of rows for Matrix 2: "))
- cols2 = int(input("Enter the number of columns for Matrix 2: "))
- matrix2 = enter_matrix(rows2, cols2)
- elif choice == "2":
- result = matrix_addition(matrix1, matrix2)
- if result:
- print("Matrix Addition Result:")
- for row in result:
- print(row)
- elif choice == "3":
- result = matrix_multiplication(matrix1, matrix2)
- if result:
- print("Matrix Multiplication Result:")
- for row in result:
- print(row)
- elif choice == "4":
- result = matrix_transpose(matrix1)
- if result:
- print("Transpose of Matrix 1:")
- for row in result:
- print(row)
- elif choice == "5":
- print("Exiting the program.")
- break
- else:
- print("Invalid choice. Please try again.")
+BUBBLE SORT
+def Bubblesort (alist):
+ for i in range (len (alist) -1,0,-1):
+  for j in range(i):
+       temp-alist [j] alist [j]=alist [j+1] alist [j+1]-temp 
+alist=[]
+n-int (input ("Enter the no. of elements :")) 
+while (n>0): 
+ x=int (input ("Enter the elements :")) 
+ alist.append(x) 
+ n=n-1 
+BubbleSort (alist) 
+print (alist)
+
+
+INSERTION SORT
+def InsertionSort (alist):
+ for i in range (1, len (alist)):
+     temp=alist [i] 
+     hole=i
+     while hole>0 and alist [hole-1]>temp:
+        alist [hole]=alist[hole-1] 
+        hole=hole-1 
+        alist [hole]-temp 
+alist-[] 
+n-int (input ("Enter the no.of elements :")) 
+while (n>0): 
+   x=int(input("Enter the elements :")) 
+   alist.append(x)
+   n=n-1
+InsertionSort (alist) 
+print (alist)
+
+
+Quick Sort
+def quicksort (alist, start, end): 
+ if startkend:
+    loc-partition (alist, start, end) 
+    quicksort (alist, start, loc) 
+    quicksort (alist, loc+1, end) 
+def partition (alist, start, end): 
+   pivot=alist [start] 
+   left=start+1 
+   loc=end 
+   flag-0 
+   while flag!=1:
+     while left<= loc and alist[left]<=pivot: 
+        left-left+1 
+     while alist [loc]>=pivot and loc>=left: 
+        loc=loc-1 
+     if lock<left: 
+       flag=1 
+     else:
+       temp=alist [left] 
+       alist [left]=alist [loc] 
+       alist[loc]=temp 
+     temp=alist[start] 
+     alist [start]=alist [loc] 
+     alist [loc]=temp 
+     return loc 
+alist=[] 
+n=int(input("Enter the number of elements")) 
+while (n>0): 
+  x=int(input("Enter the elements:")) 
+  alist.append(x) 
+  n=n-1 
+print ("Original list:",alist) 
+quicksort (alist, 0, len (alist)-1) 
+print ("Sorted List", alist)
+
+
+Merge sort
+def mergeSort (alist): 
+  print ("Dividing", alist) 
+  if len (alist)>1: 
+    m=len (alist)//2 
+    L=alist [:m] 
+    R=alist [m:] 
+    mergesort (L) 
+    mergeSort (R) 
+    i=0
+    j=0
+    k=0
+    while i<len (L) and j<len (R): 
+      if L[i] < R[j]: 
+        alist [k]=L[i] 
+        i=i+1 
+      else: 
+        alist [k]=R[j] 
+        j=j+1 
+      k=k+1 
+      while i<len (L): 
+        alist [k]=L[i] 
+        i=i+1 
+        k=k+1 
+      while i<len (L): 
+        alist [k]=L[i] 
+        j=j+1 
+        k=k+1 
+alist=[77,22,55,33,11] 
+mergeSort (alist) 
+print (alist)
+
+

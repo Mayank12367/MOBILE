@@ -1,0 +1,226 @@
+
+Practical-3) Designing the mobile app to implement different Layouts.
+import 'package:flutter/material.dart';
+void main() {runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+title:"My Application",
+debugShowCheckedModeBanner: true,
+home: Scaffold(
+body: Padding(
+padding: const EdgeInsets.all(20.0),
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+Row(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+children: [
+Container(height: 100, width: 100, color: Colors.teal,),
+Container(height: 100, width: 100, color: Colors.teal[600]),
+Container(
+height: 100, width: 100, color: Colors.teal[900]),
+],
+),
+Row(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+children: [
+Container( height: 100, width: 100, color: Colors.amberAccent,),
+Container( height: 100, width: 100, color: Colors.amberAccent[100]),
+Container(height: 100, width: 100,color: Colors.amberAccent[200]),
+], ) ], ) ) ) );
+}
+}
+
+
+Practical 6
+import 'package:flutter/material.dart';
+void main() {
+runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+title: 'Network Image',
+theme: ThemeData(
+primarySwatch: Colors.blue,
+),
+home: MyHomePage(),
+debugShowCheckedModeBanner: false,
+);
+}
+}
+// setup a stateful widget
+class MyHomePage extends StatefulWidget {
+@override
+_MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+// Design of the application
+appBar: AppBar(
+title:Text("GeeksforGeeks"),
+backgroundColor:Colors.green
+),
+body: Padding(
+padding: const EdgeInsets.all(8.0),
+child: ListView(
+children:<Widget>[
+Padding(
+padding: const EdgeInsets.all(8.0),
+// Image.network(src)
+child: Image.network("https://images.pexels.com/photos/213780/pexelsphoto-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
+),
+Padding(
+padding: const EdgeInsets.all(8.0),
+child: 
+Image.network("https://images.pexels.com/photos/2899097/pexels-photo2899097.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
+),
+Padding(
+padding: const EdgeInsets.all(8.0),
+child: 
+Image.network("https://images.pexels.com/photos/2820884/pexels-photo2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"),
+)
+]
+),
+),
+);
+}
+}
+
+
+
+
+Practical 7
+import 'package:flutter/material.dart';
+void main() {
+runApp(MaterialApp(home: const MyApp()));
+}
+class MyApp extends StatefulWidget {
+const MyApp({Key? key}) : super(key: key);
+@override
+State<MyApp> createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp> {
+int numberOfTimesTapped = 0;
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+children: [
+Text('Tapped '+ numberOfTimesTapped.toString() + 'times', style:
+TextStyle (fontSize:30)),
+GestureDetector(
+onTap:() {
+setState((){
+numberOfTimesTapped++;
+});
+},
+child: Container(
+padding: EdgeInsets.all(20),
+color: Colors.green[200],
+child: Text('TAP HERE', style:TextStyle(fontSize: 30), )),
+//Container
+)//GestureDetector
+],
+), // Column
+), // Center
+); //Scaffold
+}
+}
+
+
+Practical 8
+Import‘package:flutter/material.dart’;
+Void main() => runApp(MyApp());
+Class MyApp extends StatelessWidget {
+// This widget is the root of your application.
+@override
+Widget build(BuildContext context) {
+Return MaterialApp(
+Title: ‘Flutter Application’,
+Theme: ThemeData(
+primarySwatch: Colors.orange,
+),
+Home: HeroAnimation(title: ‘Hero Animation’),
+);
+}
+}
+Class HeroAnimation extends StatefulWidget {
+HeroAnimation({Key? Key, this.title=”hello”}) : super(key: key);
+Final String title;
+@override
+_HeroAnimationState createState() => _HeroAnimationState();
+}
+Class _HeroAnimationState extends State<HeroAnimation> {
+Widget _greenRectangle() {
+Return Container(
+Width: 75,
+Height: 75,
+Color: Colors.green,
+);
+}
+Widget _detailPageRectangle() {
+Return Container(
+Width: 150,
+Height: 150,
+Color: Colors.red,
+);
+}
+@override
+Widget build(BuildContext context) {
+Return Scaffold(
+appBar: AppBar(
+title: Text(widget.title),
+),
+Body: buildDemoWidget(context),
+);
+}
+Widget buildDemoWidget(BuildContext context) {
+Return Center(
+Child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: <Widget>[
+SizedBox(
+Height: 30.0,
+),
+ListTile(
+Leading: GestureDetector(
+Child: Hero(
+Tag: ‘hero-rectangle’,
+Child: _greenRectangle(),
+),
+onTap: () => _gotoDetailsPage(context),
+),
+Title: Text(‘Tap on the green icon rectangle to analyse hero animation transition.’),
+),
+],
+),
+);
+}
+Void _gotoDetailsPage(BuildContext context) {
+Navigator.of(context).push(MaterialPageRoute(
+Builder: (ctx) => Scaffold(
+Body: Center(
+Child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: <Widget>[
+Hero(
+Tag: ‘hero-rectangle’,
+Child: _detailPageRectangle(),
+),
+Text(‘This is a place where you can see details about the icon tapped at previous page.’),
+],
+),
+),
+),
+));
+}
+}

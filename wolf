@@ -1,57 +1,57 @@
 Write a program to store the elements in 1-D array and perform the operations
 like searching, sorting and reversing the elements. [Menu Driven]
-def display menu():
+def display_menu():
  print("1. Add element to the array")
  print("2. Search for an element")
  print("3. Sort the array")
  print("4. Reverse the array")
  print("5. Display the array")
  print("6. Exit")
-def add element(arr, element):
+def add_element(arr, element):
  arr.append(element)
  print(f"{element} added to the array")
-def search element(arr, element):
+def search_element(arr, element):
  if element in arr:
      return f"{element} found at index {arr.index(element)}"
  else:
      return f"{element} not found in the array"
-def sort array(arr):
+def sort_array(arr):
  arr.sort()
  print("Array sorted")
-def reverse array(arr):
+def reverse_array(arr):
  arr.reverse()
  print("Array reversed")
-def display array(arr):
+def display_array(arr):
  print("Array:", arr)
-  if __name__ == "__main__":
+if __name__ == "__main__":
     array = []
     while True:
-          display menu()
+          display_menu()
           choice = input("Enter your choice: ")
- if choice == "1":
- element = int(input("Enter the element to add: "))
- add element(array, element)
- elif choice == "2":
- element = int(input("Enter the element to search: "))
- result = search element(array, element)
- print(result)
- elif choice == "3":
- sort_array(array)
- elif choice == "4":
- reverse_array(array)
- elif choice == "5":
- display_array(array)
- elif choice == "6":
- print("Exiting the program.")
- break
- else:
- print("Invalid choice. Please try again.")
+          if choice == "1":
+              element = int(input("Enter the element to add: "))
+              add_element(array, element)
+          elif choice == "2":
+             element = int(input("Enter the element to search: "))
+             result = search_element(array, element)
+             print(result)
+          elif choice == "3":
+             sort_array(array)
+          elif choice == "4":
+             reverse_array(array)
+          elif choice == "5":
+             display_array(array)
+          elif choice == "6":
+             print("Exiting the program.")
+             break
+          else:
+             print("Invalid choice. Please try again.")
 
 
 
 Read the two arrays from the user and merge them and display the elements in
 sorted order. [Menu Driven]
-def display menu():
+def display_menu():
  print("1. Enter elements for Array 1")
  print("2. Enter elements for Array 2")
  print("3. Merge and sort arrays")
@@ -65,44 +65,48 @@ if __name__ == "__main__":
  array1 = []
  array2 = []
  while True:
- display_menu()
- choice = input("Enter your choice: ")
- if choice == "1":
- elements = input("Enter elements for Array 1 (comma-separated): ").split(',')
- array1 = [int(element.strip()) for element in elements]
- print("Array 1 updated.")
- elif choice == "2":
- elements = input("Enter elements for Array 2 (comma-separated): ").split(',')
- array2 = [int(element.strip()) for element in elements]
- print("Array 2 updated.")
- elif choice == "3":
- merged_and_sorted = merge_and_sort(array1, array2)
- print("Arrays merged and sorted.")
- elif choice == "4":
- if not merged_and_sorted:
- print("Please merge and sort the arrays first (Option 3).")
- else:
- print("Merged and sorted array:", merged_and_sorted)
- elif choice == "5":
- print("Exiting the program.")
- break
- else:
- print("Invalid choice. Please try again.")
+     display_menu()
+     choice = input("Enter your choice: ")
+     if choice == "1":
+         elements = input("Enter elements for Array 1 (comma-separated): ").split(',')
+         array1 = [int(element.strip()) for element in elements]
+         print("Array 1 updated.")
+     elif choice == "2":
+         elements = input("Enter elements for Array 2 (comma-separated): ").split(',')
+         array2 = [int(element.strip()) for element in elements]
+         print("Array 2 updated.")
+     elif choice == "3":
+         merged_and_sorted = merge_and_sort(array1, array2)
+         print("Arrays merged and sorted.")
+     elif choice == "4":
+         if not merged_and_sorted:
+              print("Please merge and sort the arrays first (Option 3).")
+         else:
+              print("Merged and sorted array:", merged_and_sorted)
+     elif choice == "5":
+         print("Exiting the program.")
+         break
+     else:
+         print("Invalid choice. Please try again.")
+
 
 
 BUBBLE SORT
-def Bubblesort (alist):
+def BubbleSort (alist):
  for i in range (len (alist) -1,0,-1):
   for j in range(i):
-       temp-alist [j] alist [j]=alist [j+1] alist [j+1]-temp 
+       temp=alist[j]
+       alist[j]=alist[j+1]
+       alist[j+1]-temp 
 alist=[]
-n-int (input ("Enter the no. of elements :")) 
+n=int(input ("Enter the no. of elements :")) 
 while (n>0): 
  x=int (input ("Enter the elements :")) 
  alist.append(x) 
  n=n-1 
 BubbleSort (alist) 
 print (alist)
+
 
 
 INSERTION SORT
@@ -114,8 +118,8 @@ def InsertionSort (alist):
         alist [hole]=alist[hole-1] 
         hole=hole-1 
         alist [hole]-temp 
-alist-[] 
-n-int (input ("Enter the no.of elements :")) 
+alist=[] 
+n=int (input ("Enter the no.of elements :")) 
 while (n>0): 
    x=int(input("Enter the elements :")) 
    alist.append(x)
@@ -124,20 +128,21 @@ InsertionSort (alist)
 print (alist)
 
 
+
 Quick Sort
 def quicksort (alist, start, end): 
  if startkend:
-    loc-partition (alist, start, end) 
+    loc=partition (alist, start, end) 
     quicksort (alist, start, loc) 
     quicksort (alist, loc+1, end) 
 def partition (alist, start, end): 
    pivot=alist [start] 
    left=start+1 
    loc=end 
-   flag-0 
+   flag=0 
    while flag!=1:
      while left<= loc and alist[left]<=pivot: 
-        left-left+1 
+        left=left+1 
      while alist [loc]>=pivot and loc>=left: 
         loc=loc-1 
      if lock<left: 
@@ -193,4 +198,41 @@ alist=[77,22,55,33,11]
 mergeSort (alist) 
 print (alist)
 
+
+QUEUE
+A(A QUEUE IS A LIST OF ITEMS WHICH YOU ADD AND DELETE ITEMS FROM)
+class Queue:
+
+  def  __init__(self):
+      self.items=[]
+
+  def isEmpty(self):
+      return self.items == []
+
+  def enqueue (self, item):
+      self.items.insert(0, item)
+
+  def dequeue(self):
+      return self.items.pop()
+
+  def size (self):
+      return len(self.items)
+
+q= Queue()
+
+q.enqueue("hello")
+
+q.enqueue ('dog')
+
+q.enqueue (3)
+
+q.dequeue()
+
+q.enqueue (4)
+
+q.enqueue ('Nero')
+q.enqueue("Dante")
+
+q.enqueue(True)
+print (q.size())
 

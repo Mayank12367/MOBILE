@@ -383,3 +383,35 @@ root.right=node(5)
 print("Print Preorder transversal of binary tree", printPreorder(root))
 print("\n Print Inorder transversal of blanary tree",printInorder(root))
 print("\n Print Postorder transversal of binary tree",printPostorder(root))
+
+
+10)RECURSIVE IMPLEMENTATION OF
+A)FACTORIAL
+def fact (no):
+    if no==0:
+       return 1
+    else:
+       return no*fact (no-1)
+n=int (input ("Enter any number:"))
+print ("The factorial no is:", fact (n))
+
+B)FIBONACCI 
+def fibonacci (n):
+   if n<=1:
+      return n
+   else:
+      return (fibonacci (n-1)+fibonacci (n-2))
+n=int (input ("Fibonacci Sequence:"))
+print ("Fibonacci Sequence:")
+for i in range (n):
+   print ("Fibonacii Sequence:", fibonacci (i))
+
+C)TOWER OF HANOI
+def Movetower(height, source, destination, intermediate):
+   if height >=1:
+      Movetower (height-1, source, intermediate, destination)
+      Movedisk (source, destination)
+      Movetower (height-1, source, destination, intermediate)
+def Movedisk (fp, tp):
+   print ("Moving disk from", fp, "to", tp)
+Movetower (4 ,"A", "B", "C")

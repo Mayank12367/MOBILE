@@ -90,6 +90,49 @@ if __name__ == "__main__":
          print("Invalid choice. Please try again.")
 
 
+#BINARY SEARCH               def Binarydearch (items, value): 16-0
+
+ub-len (items)-1
+
+mid=int((Ib+ub)/2) If items [mid]--value:
+
+while (lbs-ub):
+
+return mid
+
+elif value<items [mid]:
+
+ub-mid-1
+
+1b-mid+1
+
+else:
+
+return-1
+
+items-list ()
+
+num-input ("Enter the no. of list:") print ("Enter the sorted list order")
+
+for i in range (0, int (num)):
+
+n-input ("Enter the elements :") items.append(int (n)) choice='y'
+
+while choice in 'y':
+
+s-input ("Enter the elements to be searched :") i-BinarySearch (items, int (s))
+
+print ("Value not found")
+
+else:
+
+print ("Value found at position: ()".format (i))
+
+if i 18-1:
+
+choice-input ("Do you want to continue? y/n:")
+
+
 
 BUBBLE SORT
 def BubbleSort (alist):
